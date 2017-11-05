@@ -17,6 +17,7 @@ class LaravelServiceProvider extends LumenServiceProvider
     {
         parent::boot();
 
+        // Load laravel routes.
         $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
     }
 }
