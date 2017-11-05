@@ -14,7 +14,7 @@
  */
 function photo_path($path = null)
 {
-    $dir = rtrim(config('photo.path', storage_path()), DIRECTORY_SEPARATOR);
+    $dir = rtrim(storage_path(config('photo.path')), DIRECTORY_SEPARATOR);
 
     return $dir . ($path ? DIRECTORY_SEPARATOR . $path : '');
 }

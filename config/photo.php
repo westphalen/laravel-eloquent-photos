@@ -15,5 +15,5 @@ return [
     | This option indicates where to store and load photos from.
     |
     */
-    'path' => storage_path('photos'),
+    'path' => 'photos/',
 ];
