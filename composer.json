@@ -1,0 +1,41 @@
+{
+  "name": "westphalen/laravel-eloquent-photos",
+  "description": "Simple Eloquent Photos for Laravel.",
+  "authors": [
+    {
+      "name": "Sune Westphalen",
+      "email": "sune@westphalen.me"
+    }
+  ],
+  "license": "MIT",
+  "type": "package",
+  "require": {
+    "php": ">=7.0",
+    "laravel/framework": "~5.5",
+    "alsofronie/eloquent-uuid": "dev-master"
+  },
+  "require-dev": {
+    "barryvdh/laravel-ide-helper": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Westphalen\\Laravel\\Photos\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": "Westphalen\\Laravel\\Photos\\Providers\\LaravelServiceProvider"
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "secure-http": false
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
