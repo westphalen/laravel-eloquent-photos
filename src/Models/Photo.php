@@ -16,6 +16,37 @@ class Photo extends Model
     use UuidModelTrait;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'path',
+        'type',
+        'size',
+    ];
+
+    /**
+     * The attributes that should be visible in serialization.
+     *
+     * @var array
+     */
+    protected $visible = [
+        'type',
+        'size',
+        'url',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'size' => 'integer',
+    ];
+
+    /**
      * The accessors to append to the model's array form.
      *
      * @var array
@@ -31,6 +62,37 @@ class Photo extends Model
      */
     public function getUrlAttribute()
     {
-        return url('photo/' . $this->id . ($this->ext ? ".{$this->ext}" : ''));
+        return url('photo/' . $this->publicName());
+    }
+
+    /**
+     * Get the public name for the Photo.
+     *
+     * @param bool $extension
+     * @return string
+     */
+    public function publicName($extension = true)
+    {
+        if ($extension === true) {
+            $extension = $this->extension();
+        } else if ($extension === false) {
+            $extension = '';
+        }
+
+        return $this->id . $extension;
+    }
+
+    /**
+     * Get the photo extension.
+     *
+     * @return string
+     */
+    public function extension()
+    {
+        if (!$this->type) {
+            return '';
+        }
+
+        return '.' . ($this->type == 'jpeg' ? 'jpg' : $this->type);
     }
 }

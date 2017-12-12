@@ -14,7 +14,6 @@
     "alsofronie/eloquent-uuid": "dev-master"
   },
   "require-dev": {
-    "barryvdh/laravel-ide-helper": "^2.4",
     "laravel/framework": "~5.5"
   },
   "autoload": {
